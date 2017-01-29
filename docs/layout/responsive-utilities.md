@@ -28,11 +28,11 @@ Try to use these on a limited basis and avoid creating entirely different versio
       <th></th>
       <th>
         Extra small devices
-        <small>Portrait phones (&lt;544px)</small>
+        <small>Portrait phones (&lt;576px)</small>
       </th>
       <th>
         Small devices
-        <small>Landscape phones (&ge;544px - &lt;768px)</small>
+        <small>Landscape phones (&ge;576px - &lt;768px)</small>
       </th>
       <th>
         Medium devices
@@ -132,8 +132,10 @@ Try to use these on a limited basis and avoid creating entirely different versio
   </tbody>
 </table>
 
-<h2 id="responsive-utilities-print">Print classes</h2>
-<p>Similar to the regular responsive classes, use these for toggling content for print.</p>
+## Print classes
+
+Similar to the regular responsive classes, use these for toggling content for print.
+
 <table class="table table-bordered table-striped responsive-utilities table-responsive">
   <thead>
     <tr>
