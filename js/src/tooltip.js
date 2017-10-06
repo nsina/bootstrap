@@ -622,18 +622,18 @@ const Tooltip = (() => {
         config
       )
 
-      if (config.delay && typeof config.delay === 'number') {
+      if (typeof config.delay === 'number') {
         config.delay = {
           show : config.delay,
           hide : config.delay
         }
       }
 
-      if (config.title && typeof config.title === 'number') {
+      if (typeof config.title === 'number') {
         config.title = config.title.toString()
       }
 
-      if (config.content && typeof config.content === 'number') {
+      if (typeof config.content === 'number') {
         config.content = config.content.toString()
       }
 
@@ -728,6 +728,6 @@ const Tooltip = (() => {
 
   return Tooltip
 
-})(jQuery, Popper)
+})($, Popper)
 
 export default Tooltip
