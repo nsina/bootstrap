@@ -32,6 +32,11 @@ Alternatively, to target a specific plugin, just include the plugin's name as a 
 $(document).off('.alert.data-api')
 {% endhighlight %}
 
+{% callout warning %}
+##### Escaping selectors
+If you use special selectors, for example: `collapse:Example`, be sure to escape them, because they'll be passed through jQuery.
+{% endcallout %}
+
 ## Events
 
 Bootstrap provides custom events for most plugins' unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. `show`) is triggered at the start of an event, and its past participle form (ex. `shown`) is triggered on the completion of an action.
@@ -67,6 +72,7 @@ Each plugin also exposes its raw constructor on a `Constructor` property: `$.fn.
 All programmatic API methods are **asynchronous** and returns to the caller once the transition is started but **before it ends**.
 
 In order to execute an action once the transition is complete, you can listen to the corresponding event.
+
 {% highlight js %}
 $('#myCollapse').on('shown.bs.collapse', function (e) {
   // Action to execute once the collapsible area is expanded
@@ -74,6 +80,7 @@ $('#myCollapse').on('shown.bs.collapse', function (e) {
 {% endhighlight %}
 
 In addition a method call on a **transitioning component will be ignored**.
+
 {% highlight js %}
 $('#myCarousel').on('slid.bs.carousel', function (e) {
   $('#myCarousel').carousel('2') // Will slide to the slide 2 as soon as the transition to slide 1 is finished
@@ -113,13 +120,13 @@ $.fn.tooltip.Constructor.VERSION // => "{{ site.current_version }}"
 Bootstrap's plugins don't fall back particularly gracefully when JavaScript is disabled. If you care about the user experience in this case, use [`<noscript>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) to explain the situation (and how to re-enable JavaScript) to your users, and/or add your own custom fallbacks.
 
 {% callout warning %}
-#### Third-party libraries
+##### Third-party libraries
 
 **Bootstrap does not officially support third-party JavaScript libraries** like Prototype or jQuery UI. Despite `.noConflict` and namespaced events, there may be compatibility problems that you need to fix on your own.
 {% endcallout %}
 
 ## Util
 
-All Bootstrap's JavaScript files depend on `util.js` and it has to be included alongside the other JS files. If you're using the compiled (or minified) `bootstrap.js`, there is no need to include this—it's already there.
+All Bootstrap's JavaScript files depend on `util.js` and it has to be included alongside the other JavaScript files. If you're using the compiled (or minified) `bootstrap.js`, there is no need to include this—it's already there.
 
 `util.js` includes utility functions and a basic helper for `transitionEnd` events as well as a CSS transition emulator. It's used by the other plugins to check for CSS transition support and to catch hanging transitions.
